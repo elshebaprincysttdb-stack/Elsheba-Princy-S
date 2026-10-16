@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elsheba Princy S · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f1f0ec;--ink:#111;--red:#e4361b;--ease:cubic-bezier(.2,.8,.2,1);--g:16px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 1rem/1.5 'Archivo','Helvetica Neue',Arial,sans-serif;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);column-gap:var(--g);padding-inline:var(--g);max-width:90rem;margin:0 auto}
+@media(min-width:800px){.grid{grid-template-columns:repeat(12,1fr);padding-inline:32px;--g:24px}}
+
+/* progress ruler */
+#bar{position:fixed;top:0;left:0;right:0;height:10px;z-index:50;background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 10%);background-size:100% 6px;background-repeat:no-repeat;background-position:0 100%}
+#bar i{position:absolute;inset:0 0 6px;background:var(--red);transform-origin:0 50%;transform:scaleX(0)}
+#bar{border-bottom:1px solid var(--ink)}
+
+/* hero */
+.hero{min-height:100svh;padding-top:3.5rem;align-content:space-between;row-gap:2rem}
+.top{grid-column:1/-1;display:flex;justify-content:space-between;font-weight:500;font-size:.85rem;border-top:4px solid var(--ink);padding-top:.5rem}
+h1{grid-column:1/-1;font-weight:900;font-size:min(17.5vw,12.5rem);line-height:.82;letter-spacing:-.055em;margin-left:-.04em}
+h1 span{display:block}
+.mono{grid-column:3/5;grid-row:2;justify-self:end;align-self:start;width:min(100%,9.5rem);aspect-ratio:1;border-radius:50%;background:var(--red);color:var(--paper);display:grid;place-items:center;font-weight:900;font-size:2.4rem;letter-spacing:-.06em;border:0;cursor:pointer;margin-top:-2.2rem;position:relative;z-index:2}
+.low{grid-column:1/-1;display:grid;grid-template-columns:subgrid;row-gap:1rem;border-top:4px solid var(--ink);padding:.9rem 0 1.5rem}
+.tag{grid-column:1/-1;font-weight:800;font-size:1.6rem;line-height:1.08;letter-spacing:-.02em;max-width:18ch}
+.now{grid-column:1/-1;font-size:.9rem;max-width:34ch}
+.btns{grid-column:1/-1;display:flex;gap:.6rem;flex-wrap:wrap}
+.btn{position:relative;overflow:hidden;font:800 1rem 'Archivo',sans-serif;text-decoration:none;padding:.85rem 1.4rem;border:2px solid var(--ink);background:var(--ink);color:var(--paper);isolation:isolate;transition:color .4s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;background:var(--red);transform:translateY(101%);transition:transform .45s var(--ease);z-index:-1}
+.btn:hover::before{transform:none}
+.btn.o{background:transparent;color:var(--ink)}
+.btn.o:hover{color:var(--paper);border-color:var(--red)}
+@media(min-width:800px){
+  .mono{grid-column:10/13;grid-row:2;width:100%;max-width:12rem;font-size:3.4rem;margin-top:-6rem}
+  .tag{grid-column:1/6;font-size:2.4rem}.now{grid-column:7/11;align-self:end}.btns{grid-column:11/13;flex-direction:column;align-self:end}
+  .low{grid-template-columns:subgrid}
+}
+
+/* sections */
+section.s{padding:5rem 0 1rem}
+.s .rule{grid-column:1/-1;height:4px;background:var(--ink);transform-origin:0 0;transform:scaleX(0);transition:transform 1.1s var(--ease)}
+.s.in .rule{transform:none}
+.lab{grid-column:1/-1;font-weight:500;font-size:.85rem;margin:.6rem 0 1.5rem}
+h2{grid-column:1/-1;font-weight:900;font-size:min(21vw,14rem);line-height:.8;letter-spacing:-.06em;margin:0 0 2rem -.04em}
+.body{grid-column:1/-1}
+.body p{max-width:46ch;margin-bottom:1rem}
+.lead{font-weight:800;font-size:1.65rem;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.25rem}
+@media(min-width:800px){
+  .lab{grid-column:1/3;margin:0}
+  h2{grid-column:3/-1;margin-top:-1.7rem}
+  .body{grid-column:3/10}
+  .body.r{grid-column:6/13}
+  .lead{font-size:2.6rem}
+}
+
+/* skills */
+.lvl{display:grid;grid-template-columns:3rem 1fr;gap:.2rem 1rem;padding:1.1rem 0;border-top:1px solid var(--ink)}
+.lvl svg{width:2.2rem;height:2.2rem;grid-row:1/3}
+.lvl h3{font-weight:900;font-size:2rem;line-height:1;letter-spacing:-.04em}
+.lvl p{margin:0;font-size:1.05rem;font-weight:500;max-width:none}
+.lvl small{grid-column:2;font-size:.82rem}
+@media(min-width:800px){.lvl{grid-template-columns:3rem 14rem 1fr;align-items:center}.lvl svg{grid-row:auto}.lvl small{grid-column:auto;display:none}}
+
+/* journey */
+.cols{grid-column:1/-1;display:grid;gap:2.5rem var(--g)}
+.col h3{font-weight:900;font-size:3.4rem;line-height:.85;letter-spacing:-.06em;margin-bottom:.8rem;border-top:4px solid var(--ink);padding-top:.5rem}
+.col:nth-child(2) h3{color:var(--red)}
+.col p{max-width:30ch;font-size:.95rem}
+@media(min-width:800px){.cols{grid-template-columns:5fr 4fr 3fr}.col h3{font-size:4.6rem}}
+
+/* beyond */
+.facts{grid-column:1/-1;list-style:none;padding:0}
+.facts li{display:grid;grid-template-columns:1fr;border-top:1px solid var(--ink);padding:.8rem 0 1.1rem}
+.facts b{font-weight:900;font-size:2.2rem;line-height:.95;letter-spacing:-.04em}
+.facts span{font-size:.95rem;max-width:36ch}
+.facts li:hover b{color:var(--red)}
+@media(min-width:800px){.facts{grid-column:3/-1}.facts li{grid-template-columns:1fr 1fr;align-items:end}.facts b{font-size:3rem}}
+
+/* contact */
+.row{grid-column:1/-1}
+.row a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;border-top:1px solid var(--ink);padding:.8rem 0;text-decoration:none;font-weight:900;font-size:clamp(1.6rem,7vw,3.4rem);line-height:1;letter-spacing:-.04em;overflow-wrap:anywhere;transition:padding .45s var(--ease),background .3s,color .3s}
+.row a span{font-weight:500;font-size:.85rem;letter-spacing:0}
+.row a:hover{background:var(--red);color:var(--paper);padding-inline:1rem}
+.row:last-of-type a:last-child{border-bottom:1px solid var(--ink)}
+@media(min-width:800px){.row{grid-column:3/-1}}
+footer{padding:3rem var(--g) 3rem;font-size:.85rem}
+
+/* easter egg: designer's grid overlay */
+#cols{position:fixed;inset:0;z-index:40;pointer-events:none;opacity:0;transition:opacity .4s}
+#cols.on{opacity:1}
+#cols div{max-width:90rem;margin:0 auto;height:100%;display:grid;grid-template-columns:repeat(4,1fr);column-gap:var(--g);padding-inline:var(--g)}
+#cols div i{background:rgba(228,54,27,.14);border-inline:1px solid var(--red)}
+@media(min-width:800px){#cols div{grid-template-columns:repeat(12,1fr);padding-inline:32px}}
+#cols i:nth-child(n+5){display:none}
+@media(min-width:800px){#cols i:nth-child(n+5){display:block}}
+
+/* opening */
+#intro{position:fixed;inset:0;z-index:100;background:var(--red);display:grid;place-items:center;color:var(--paper);--r:0vmax;
+  -webkit-mask:radial-gradient(circle at 50% 50%,transparent var(--r),#000 calc(var(--r) + 1px));mask:radial-gradient(circle at 50% 50%,transparent var(--r),#000 calc(var(--r) + 1px))}
+#intro b{font-weight:900;font-size:clamp(2.6rem,12vw,7rem);line-height:.85;letter-spacing:-.05em;text-align:center}
+#skip{position:fixed;right:var(--g);bottom:var(--g);z-index:101;font:800 .9rem 'Archivo',sans-serif;background:var(--paper);color:var(--ink);border:2px solid var(--ink);padding:.5rem 1rem;cursor:pointer}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.s .rule{transform:none}#intro,#skip{display:none}}
+</style>
+</head>
+<body>
+
+<div id="intro" aria-hidden="true"><b>Elsheba<br>Princy S</b></div>
+<button id="skip" type="button">Skip</button>
+<div id="bar" aria-hidden="true"><i></i></div>
+<div id="cols" aria-hidden="true"><div><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+
+<header class="grid hero" id="top">
+  <div class="top"><span>Portfolio</span><span>B.Tech IT, year 1</span></div>
+  <h1><span>Elsheba</span><span>Princy S</span></h1>
+  <button class="mono" id="mono" type="button" aria-label="Monogram EPS">EPS</button>
+  <div class="low">
+    <!-- EDIT: tagline in your own words -->
+    <p class="tag">I build small things and learn out loud.</p>
+    <!-- EDIT: what you're doing right now -->
+    <p class="now">Currently: settling into first-year IT and making my first real projects.</p>
+    <div class="btns"><a class="btn" href="#about">Explore</a><a class="btn o" href="#contact">Say hi</a></div>
+  </div>
+</header>
+
+<section class="s" id="about">
+  <div class="grid"><div class="rule"></div><p class="lab">About</p><h2>Me</h2>
+    <div class="body">
+      <!-- EDIT: replace with your own story from your Me-Map -->
+      <p class="lead">I'm Elsheba. I've just started a B.Tech in Information Technology and everything still feels new.</p>
+      <p>I like knowing how things work underneath, and I like it more when I can build something other people can use. That's what pulled me toward IT.</p>
+      <p>This site is my first proper piece of work. I'll keep rebuilding it as I learn.</p>
+    </div></div>
+</section>
+
+<section class="s" id="skills">
+  <div class="grid"><div class="rule"></div><p class="lab">Skills</p><h2>Tools</h2>
+    <div class="body r">
+      <!-- EDIT: move items between levels so it stays honest -->
+      <div class="lvl"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#e4361b"/></svg><h3>Comfortable</h3><p>HTML, CSS</p><small>I can use these without looking things up.</small></div>
+      <div class="lvl"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#111" stroke-width="3"/><path d="M20 3a17 17 0 0 1 0 34z" fill="#111"/></svg><h3>Learning</h3><p>JavaScript, C, Git</p><small>Practising these every week.</small></div>
+      <div class="lvl"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#111" stroke-width="3" stroke-dasharray="3 5"/></svg><h3>Curious</h3><p>Python, databases, UI design</p><small>Not started yet, but on my list.</small></div>
+    </div></div>
+</section>
+
+<section class="s" id="journey">
+  <div class="grid"><div class="rule"></div><p class="lab">Journey</p><h2>Path</h2>
+    <div class="cols">
+      <div class="col"><h3>Made</h3><p>This portfolio, designed and coded by hand. <!-- EDIT: add class projects --></p></div>
+      <div class="col"><h3>Learning</h3><p>Programming basics, how the web works, and how to ask better questions when I'm stuck.</p></div>
+      <div class="col"><h3>Next</h3><p>An app that solves one small, real problem well.</p></div>
+    </div></div>
+</section>
+
+<section class="s" id="beyond">
+  <div class="grid"><div class="rule"></div><p class="lab">Beyond code</p><h2>Off<br>screen</h2>
+    <!-- EDIT: swap in your real hobbies and fun facts -->
+    <ul class="facts">
+      <li><b>Hobby</b><span>Add something you do when the laptop is shut.</span></li>
+      <li><b>On repeat</b><span>A song, show or book you keep going back to.</span></li>
+      <li><b>Fun fact</b><span>One small thing people wouldn't guess about you.</span></li>
+    </ul></div>
+</section>
+
+<section class="s" id="contact">
+  <div class="grid"><div class="rule"></div><p class="lab">Contact</p><h2>Say hi</h2>
+    <!-- EDIT: put your real links -->
+    <div class="row">
+      <a href="mailto:your.email@example.com">your.email@example.com<span>Email</span></a>
+      <a href="https://www.linkedin.com/in/your-name" target="_blank" rel="noopener">linkedin.com/in/your-name<span>LinkedIn</span></a>
+      <a href="https://github.com/your-username" target="_blank" rel="noopener">github.com/your-username<span>GitHub</span></a>
+    </div></div>
+</section>
+<footer class="grid"><span style="grid-column:1/-1">Set and coded by Elsheba Princy S.</span></footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var intro=document.getElementById('intro'),skip=document.getElementById('skip');
+  var seen=false;try{seen=sessionStorage.getItem('seen')}catch(e){}
+
+  /* opening: colour circle grows from the centre (1.7s, once) */
+  var raf,done=false;
+  function end(){if(done)return;done=true;cancelAnimationFrame(raf);intro.remove();skip.remove();try{sessionStorage.setItem('seen','1')}catch(e){}}
+  if(reduce||seen){done=true;intro.remove();skip.remove()}
+  else{
+    var t0=null,hold=450,dur=1250,max=Math.hypot(innerWidth,innerHeight)/2/Math.min(innerWidth,innerHeight)*100+4;
+    (function step(t){
+      if(done)return;if(!t0)t0=t;var p=Math.min(Math.max((t-t0-hold)/dur,0),1);
+      var e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+      intro.style.setProperty('--r',(e*max)+'vmin');
+      p<1?raf=requestAnimationFrame(step):end();
+    })(performance.now());
+    skip.onclick=end;
+  }
+
+  /* signature: scroll progress ruler */
+  var fill=document.querySelector('#bar i');
+  function prog(){var h=document.documentElement.scrollHeight-innerHeight;fill.style.transform='scaleX('+(h>0?scrollY/h:0)+')'}
+  addEventListener('scroll',prog,{passive:true});addEventListener('resize',prog);prog();
+
+  /* rules draw in */
+  var ss=document.querySelectorAll('.s');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+    ss.forEach(function(s){io.observe(s)});
+  }else ss.forEach(function(s){s.classList.add('in')});
+
+  /* easter egg: tap the red monogram, or press G, to show the designer's grid */
+  var cols=document.getElementById('cols');
+  function toggle(){cols.classList.toggle('on')}
+  document.getElementById('mono').addEventListener('click',toggle);
+  addEventListener('keydown',function(e){if((e.key==='g'||e.key==='G')&&!e.metaKey&&!e.ctrlKey)toggle()});
+})();
+</script>
+</body>
+</html>
