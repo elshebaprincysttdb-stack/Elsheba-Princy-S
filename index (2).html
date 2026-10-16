@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elsheba Princy S · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0f4745; --teal-d:#0a3331; --paper:#f6f3ea; --ink:#13201f; --gold:#f1b434;
+  --line:rgba(19,32,31,.28);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --head:'Big Shoulders Display','Impact',sans-serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--teal);color:var(--ink);font:400 1rem/1.65 var(--mono);padding:1rem .75rem 4rem;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto}
+
+/* ticket */
+.ticket{position:relative;background:var(--paper);border-radius:6px;margin:0 0 2.25rem;padding:1.5rem 1.25rem 1.75rem}
+.ticket::before,.ticket::after{content:"";position:absolute;top:3.1rem;width:22px;height:22px;border-radius:50%;background:var(--teal)}
+.ticket::before{left:-11px}.ticket::after{right:-11px}
+.strip{display:flex;justify-content:space-between;gap:1rem;font-size:.75rem;padding-bottom:1.1rem;margin:0 -1.25rem 1.5rem;padding-inline:1.25rem;border-bottom:2px dashed var(--line)}
+.strip b{font-weight:500}
+h1,h2,h3{font-family:var(--head);font-weight:900;line-height:.88;letter-spacing:-.01em;text-transform:uppercase}
+h2{font-size:clamp(3rem,13vw,6.5rem);margin-bottom:1.25rem}
+.gate{font-family:var(--head);font-weight:800;background:var(--ink);color:var(--paper);display:inline-block;padding:.1rem .7rem .15rem;font-size:1.5rem;line-height:1.1;transform:rotate(-2deg);margin-bottom:.9rem}
+p{max-width:60ch}p+p{margin-top:1rem}
+
+/* hero */
+.hero h1{font-size:clamp(4.6rem,23vw,13rem);line-height:.8}
+.hero h1 span{display:block}
+.hero h1 span:nth-child(2){padding-left:.35em;color:var(--teal)}
+.hero-grid{display:grid;gap:1.5rem}
+.stamp{width:132px;height:132px;transform:rotate(-9deg);justify-self:start;cursor:default}
+.tag{font-size:1.1rem;max-width:30ch;margin-top:1.5rem;font-weight:500}
+.now{margin-top:1rem;font-size:.9rem;border-left:4px solid var(--gold);padding-left:.75rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.btn{font:500 1rem var(--mono);text-decoration:none;padding:.8rem 1.4rem;border:2px solid var(--ink);border-radius:3px;background:var(--ink);color:var(--paper);transition:transform .35s var(--ease),background .35s,color .35s}
+.btn.alt{background:var(--gold);color:var(--ink)}
+.btn:hover{transform:translateY(-3px) rotate(-1.5deg)}
+@media(min-width:760px){
+  body{padding:2rem 2rem 6rem}
+  .ticket{padding:2rem 2.5rem 2.25rem}.strip{margin-inline:-2.5rem;padding-inline:2.5rem}
+  .hero-grid{grid-template-columns:1fr auto;align-items:end}
+  .stamp{width:190px;height:190px;justify-self:end}
+  .ticket.off{margin-left:6%}.ticket.off2{margin-right:6%}
+}
+
+/* skills */
+.lvl{display:grid;gap:.6rem;padding:1.1rem 0;border-top:2px dashed var(--line)}
+.lvl h3{font-size:2rem}
+.lvl small{display:block;font-size:.8rem;max-width:34ch}
+.chips{display:flex;flex-wrap:wrap;gap:.55rem}
+.chip{padding:.3rem .8rem;border:2px solid var(--ink);border-radius:3px;font-weight:500;transform:rotate(var(--r,0deg))}
+.chip.c{background:var(--teal);color:var(--paper);border-color:var(--teal)}
+.chip.l{background:var(--gold)}
+.chip.k{border-style:dashed}
+@media(min-width:760px){.lvl{grid-template-columns:15rem 1fr;gap:2rem}}
+
+/* journey */
+.legs{list-style:none;padding:0;position:relative;display:grid;gap:1.75rem;margin-top:1rem}
+.legs::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;border-left:3px dotted var(--ink)}
+.legs li{padding-left:2.5rem;position:relative}
+.legs li::before{content:"";position:absolute;left:0;top:.35rem;width:21px;height:21px;border-radius:50%;border:3px solid var(--ink);background:var(--paper)}
+.legs li:nth-child(2)::before{background:var(--gold)}
+.legs li:nth-child(3)::before{background:var(--teal)}
+.legs h3{font-size:2.2rem;margin-bottom:.4rem}
+.legs em{font-style:normal;font-size:.8rem;display:block;margin-bottom:.4rem}
+
+/* beyond: luggage tags */
+.tags{display:flex;flex-wrap:wrap;gap:1.25rem 1rem;margin-top:1rem}
+.lug{position:relative;width:min(100%,15.5rem);padding:1.6rem 1rem 1rem 2.6rem;background:var(--gold);clip-path:polygon(0 18%,12% 0,100% 0,100% 100%,12% 100%,0 82%);transform:rotate(var(--r));transition:transform .4s var(--ease)}
+.lug:hover{transform:rotate(0) translateY(-4px)}
+.lug::before{content:"";position:absolute;left:.7rem;top:calc(50% - 8px);width:16px;height:16px;border-radius:50%;background:var(--paper)}
+.lug h3{font-size:1.7rem;margin-bottom:.3rem}
+.lug p{font-size:.88rem;line-height:1.5}
+.lug:nth-child(even){background:var(--teal);color:var(--paper)}
+.lug:nth-child(even)::before{background:var(--paper)}
+
+/* contact */
+.links{display:grid;gap:.9rem;margin:1.25rem 0 1.75rem}
+.links a{display:flex;justify-content:space-between;gap:1rem;border-bottom:2px solid var(--ink);padding:.5rem 0;text-decoration:none;font-weight:500;font-size:1.05rem;overflow-wrap:anywhere;transition:padding .35s var(--ease),background .35s}
+.links a:hover{padding-left:.7rem;background:var(--gold)}
+.links span{font-weight:400;font-size:.8rem;align-self:center;flex:none}
+.bar{height:62px;border:0;width:100%;cursor:pointer;background:repeating-linear-gradient(90deg,var(--ink) 0 3px,transparent 3px 6px,var(--ink) 6px 7px,transparent 7px 12px,var(--ink) 12px 16px,transparent 16px 19px);border-radius:2px}
+.foot{font-size:.75rem;margin-top:.6rem}
+
+/* easter egg */
+#plane{position:fixed;left:-120px;top:30%;width:100px;z-index:60;pointer-events:none}
+#plane.go{animation:fly 2.6s var(--ease) forwards}
+@keyframes fly{to{transform:translateX(calc(100vw + 260px)) translateY(-120px) rotate(-10deg)}}
+#cleared{position:fixed;inset:0;display:grid;place-items:center;z-index:55;pointer-events:none;opacity:0}
+#cleared b{font-family:var(--head);font-weight:900;text-transform:uppercase;font-size:clamp(3.4rem,17vw,9rem);line-height:.85;text-align:center;color:var(--gold);border:.18em solid var(--gold);padding:.1em .25em;background:rgba(10,51,49,.9);transform:rotate(-8deg) scale(1.6)}
+#cleared.go{animation:stampin 2.4s var(--ease) forwards}
+@keyframes stampin{0%{opacity:0}12%{opacity:1}22%{opacity:1}22.1%{opacity:1}88%{opacity:1}100%{opacity:0}}
+#cleared.go b{animation:thud .5s var(--ease) forwards}
+@keyframes thud{to{transform:rotate(-8deg) scale(1)}}
+
+/* opening */
+#intro{position:fixed;inset:0;z-index:100;background:var(--paper);display:grid;place-items:center;padding:1.5rem;transition:transform .7s cubic-bezier(.7,0,.2,1)}
+#intro.out{transform:translateY(-100%)}
+#intro .in{width:min(100%,46rem)}
+#intro h2{font-size:clamp(3.4rem,17vw,9rem);line-height:.82;margin:0}
+#intro svg{display:block;width:100%;height:auto;margin-top:.3rem}
+#intro path{fill:none;stroke:var(--teal);stroke-width:7;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.3s .45s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+#skip{position:absolute;right:1rem;bottom:1rem;font:500 .85rem var(--mono);background:none;border:2px solid var(--ink);padding:.45rem .9rem;border-radius:3px;cursor:pointer}
+
+/* glide-in (signature) */
+.js .glide{opacity:0;transform:translateY(60px) rotate(1.2deg);transition:opacity .9s var(--ease),transform 1.1s var(--ease)}
+.js .glide.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .glide{opacity:1;transform:none}
+  #intro{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="intro" role="dialog" aria-label="Welcome">
+  <div class="in">
+    <h2>Elsheba<br>Princy S</h2>
+    <svg viewBox="0 0 600 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M6 24 C70 6 110 38 180 20 S300 8 360 24 S500 34 594 12"/></svg>
+  </div>
+  <button id="skip" type="button">Skip</button>
+</div>
+
+<main class="wrap">
+
+<!-- LANDING -->
+<section class="ticket hero" id="top">
+  <div class="strip"><span>Boarding pass</span><b>Year 1 · B.Tech IT</b></div>
+  <div class="hero-grid">
+    <h1><span>Elsheba</span><span>Princy S</span></h1>
+    <!-- monogram stamp; click it 3 times for a surprise -->
+    <svg class="stamp" id="mono" viewBox="0 0 200 200" role="img" aria-label="Monogram EPS">
+      <circle cx="100" cy="100" r="94" fill="none" stroke="#0f4745" stroke-width="6"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#0f4745" stroke-width="2" stroke-dasharray="3 6"/>
+      <defs><path id="arc" d="M100 100 m-66 0 a66 66 0 1 1 132 0"/></defs>
+      <text font-family="IBM Plex Mono,monospace" font-size="17" font-weight="500" fill="#0f4745" letter-spacing="3"><textPath href="#arc" startOffset="50%" text-anchor="middle">DEPARTING · NOW</textPath></text>
+      <text x="100" y="128" text-anchor="middle" font-family="Big Shoulders Display,Impact,sans-serif" font-weight="900" font-size="82" fill="#13201f" letter-spacing="-1">EPS</text>
+      <path d="M52 150h96" stroke="#f1b434" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <!-- EDIT: tagline in your own words -->
+  <p class="tag">First-year IT student, learning to build things that work and feel like someone cared.</p>
+  <!-- EDIT: what you're doing right now -->
+  <p class="now">Currently: finding my feet in my first year of B.Tech IT, one small project at a time.</p>
+  <div class="btns"><a class="btn" href="#about">Explore</a><a class="btn alt" href="#contact">Say hi</a></div>
+</section>
+
+<!-- ABOUT -->
+<section class="ticket glide off" id="about">
+  <div class="strip"><span>Gate A1</span><b>Passenger details</b></div>
+  <span class="gate">A1</span>
+  <h2>About me</h2>
+  <!-- EDIT: replace with your own story, using your Me-Map answers -->
+  <p>Hi, I'm Elsheba. I've just started my B.Tech in Information Technology, and everything still feels new in the best way: new tools, new people, new ways of thinking about a problem.</p>
+  <p>I like understanding how things work underneath, and I like it more when I can make something other people can use. That's what pulled me toward IT.</p>
+  <p>This site is my first proper piece of work. I built it to be shared, and I'll keep rebuilding it as I learn.</p>
+</section>
+
+<!-- SKILLS -->
+<section class="ticket glide off2" id="skills">
+  <div class="strip"><span>Gate B2</span><b>Cleared for</b></div>
+  <span class="gate">B2</span>
+  <h2>Skills</h2>
+  <!-- EDIT: move items between levels so it's honest -->
+  <div class="lvl"><div><h3>Comfortable</h3><small>I can use these without looking everything up.</small></div>
+    <div class="chips"><span class="chip c" style="--r:-1.5deg">HTML</span><span class="chip c" style="--r:1deg">CSS</span><span class="chip c" style="--r:-.5deg">Typing fast</span></div></div>
+  <div class="lvl"><div><h3>Learning</h3><small>Practising these every week.</small></div>
+    <div class="chips"><span class="chip l" style="--r:1.5deg">JavaScript</span><span class="chip l" style="--r:-1deg">C programming</span><span class="chip l" style="--r:.8deg">Git and GitHub</span></div></div>
+  <div class="lvl"><div><h3>Curious about</h3><small>On the departure board, not boarded yet.</small></div>
+    <div class="chips"><span class="chip k" style="--r:-1deg">Python</span><span class="chip k" style="--r:1.2deg">Databases</span><span class="chip k" style="--r:-.4deg">UI design</span></div></div>
+</section>
+
+<!-- JOURNEY -->
+<section class="ticket glide off" id="journey">
+  <div class="strip"><span>Gate C3</span><b>Flight log</b></div>
+  <span class="gate">C3</span>
+  <h2>Journey</h2>
+  <ol class="legs">
+    <li><h3>Departed</h3><em>What I've made</em><p>This portfolio, designed and coded by hand. <!-- EDIT: add classroom projects, mini-apps --></p></li>
+    <li><h3>In flight</h3><em>What I'm learning</em><p>The basics of programming, how the web works, and how to ask better questions when I'm stuck.</p></li>
+    <li><h3>Destination</h3><em>What I want to build</em><p>Something useful for people around me: an app that solves one real, small problem well.</p></li>
+  </ol>
+</section>
+
+<!-- BEYOND CODE -->
+<section class="ticket glide off2" id="beyond">
+  <div class="strip"><span>Baggage claim</span><b>Carry-on</b></div>
+  <h2>Beyond code</h2>
+  <!-- EDIT: swap in your real hobbies and fun facts -->
+  <div class="tags">
+    <div class="lug" style="--r:-2deg"><h3>Hobby</h3><p>Add something you do when the laptop is shut.</p></div>
+    <div class="lug" style="--r:1.5deg"><h3>On repeat</h3><p>A song, a show or a book you keep going back to.</p></div>
+    <div class="lug" style="--r:-1deg"><h3>Fun fact</h3><p>One small thing most people wouldn't guess about you.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="ticket glide" id="contact">
+  <div class="strip"><span>Final call</span><b>Gate D4</b></div>
+  <span class="gate">D4</span>
+  <h2>Say hi</h2>
+  <p>Open to friendly messages, ideas and collaborations.</p>
+  <!-- EDIT: put your real links -->
+  <div class="links">
+    <a href="mailto:your.email@example.com">your.email@example.com<span>Email</span></a>
+    <a href="https://www.linkedin.com/in/your-name" target="_blank" rel="noopener">linkedin.com/in/your-name<span>LinkedIn</span></a>
+    <a href="https://github.com/your-username" target="_blank" rel="noopener">github.com/your-username<span>GitHub</span></a>
+  </div>
+  <button class="bar" id="bar" type="button" aria-label="Scan boarding pass"></button>
+  <p class="foot">Made by hand by Elsheba Princy S. Thanks for stopping by.</p>
+</section>
+
+</main>
+
+<svg id="plane" viewBox="0 0 100 40" aria-hidden="true"><path d="M2 20 L38 17 L64 2 L72 2 L58 18 L88 16 Q98 18 88 22 L58 22 L72 38 L64 38 L38 23 Z" fill="#f1b434"/></svg>
+<div id="cleared" aria-hidden="true"><b>Cleared<br>for takeoff</b></div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var intro=document.getElementById('intro');
+  document.documentElement.classList.add('js');
+
+  /* opening: plays once per visit, under 2.5s */
+  var seen=false; try{seen=sessionStorage.getItem('seen')}catch(e){}
+  function closeIntro(){ if(!intro) return; intro.classList.add('out'); try{sessionStorage.setItem('seen','1')}catch(e){} setTimeout(function(){intro.remove();intro=null},750) }
+  if(reduce||seen){ intro.remove(); intro=null }
+  else{ var t=setTimeout(closeIntro,2000); document.getElementById('skip').onclick=function(){clearTimeout(t);closeIntro()} }
+
+  /* signature: sections glide in on scroll */
+  var items=document.querySelectorAll('.glide');
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    items.forEach(function(el){io.observe(el)});
+  } else items.forEach(function(el){el.classList.add('in')});
+
+  /* easter egg: tap the monogram 3 times, or the barcode */
+  var n=0,plane=document.getElementById('plane'),clr=document.getElementById('cleared');
+  function takeoff(){
+    [plane,clr].forEach(function(el){el.classList.remove('go');void el.offsetWidth;el.classList.add('go')});
+    if(reduce){clr.style.opacity=1;setTimeout(function(){clr.style.opacity=0},1800)}
+  }
+  document.getElementById('mono').addEventListener('click',function(){ if(++n>=3){n=0;takeoff()} });
+  document.getElementById('bar').addEventListener('click',takeoff);
+})();
+</script>
+</body>
+</html>
